@@ -22,12 +22,6 @@ jobs:
           chmod +x ./kubectl
           sudo mv ./kubectl /usr/local/bin/kubectl
 
-      - name: Decode kubeconfig and set KUBECONFIG
-        run: |
-          echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
-          echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
-
       - name: Apply YAMLs with kubectl
         run: |
-          kubectl get pods -n app
-          #kubectl apply -f ${{ github.event.inputs.folder }} --recursive
+          kubectl apply -f ${{ github.event.inputs.folder }} --recursive
