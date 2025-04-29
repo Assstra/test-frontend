@@ -29,5 +29,5 @@ jobs:
 
       - name: Apply YAMLs with kubectl
         run: |
-          kubectl get pods -n app
+          kubectl get pods -n arc-systems
           #kubectl apply -f ${{ github.event.inputs.folder }} --recursive
