@@ -29,7 +29,7 @@ jobs:
 
       - name: Apply YAMLs with kubectl
         run: |
-          kubectl config view --minify
+          echo "KUBECONFIG=$KUBECONFIG"
           kubectl config get-contexts
           kubectl get pods -n app
           #kubectl apply -f ${{ github.event.inputs.folder }} --recursive
